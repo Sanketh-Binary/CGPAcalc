@@ -17,18 +17,19 @@ public class Cgpa {
         credArr=new float[n];
     }
 
-    public float calculateCGPA(){
+    public float calculateCGPA(){        //calculating cgpa
 
         float resultCgpa=0;
 
         for(int i=0;i<num_of_sub;i++){
 
-                resultCgpa=subPointsArr[i]*credArr[i];
+                resultCgpa+=subPointsArr[i]*credArr[i];
 
             }
 
+        float CgpaG=resultCgpa/total_Credits;
 
-        return resultCgpa;
+        return CgpaG;
     }
      public void printSubPoints(){
 
@@ -64,7 +65,7 @@ public class Cgpa {
 
          for (int i=0;i<C.num_of_sub;i++){
              System.out.print("Enter Subject "+ (i+1) +" = ");
-             C.subPointsArr[i]=s.nextInt();
+             C.subPointsArr[i]=s.nextInt();  //reading points
          }
 
          System.out.println("---------------------------WAIT--------------------------------------");
@@ -73,13 +74,13 @@ public class Cgpa {
 
          for (int i=0;i<C.num_of_sub;i++){
              System.out.print("Enter Subject "+ (i+1) +" Credits = ");
-             C.credArr[i]=s.nextFloat();
+             C.credArr[i]=s.nextFloat();         //reading Credits
              C.total_Credits+=C.credArr[i];     //Calculating Total Credits and Storing
           }
 
        System.out.println("Calculating Cgpa Based on the details provided......");
 
-         System.out.println(C.calculateCGPA());
+         System.out.println("Your CGPA is =  "+C.calculateCGPA());
 
 
      }
